@@ -22,7 +22,6 @@ yarn-error.log*
 
 # Secrets
 .env
-.env.example
 
 # Lock file
 package-lock.json

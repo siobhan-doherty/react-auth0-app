@@ -23,9 +23,14 @@ yarn-error.log*
 # Secrets
 .env
 
-# Lock file
-package-lock.json
-
 # IDE
 .vscode/
 .idea/
+
+# Terraform (state and cache)
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+override.tf
+override.tf.json

@@ -2,8 +2,17 @@
 FROM node:18-alpine AS build
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 COPY . .
+
+# Accept build arguments
+ARG REACT_APP_AUTH0_DOMAIN
+ARG REACT_APP_AUTH0_CLIENT_ID
+
+# Set them as env variables
+ENV REACT_APP_AUTH0_DOMAIN=$REACT_APP_AUTH0_DOMAIN
+ENV REACT_APP_AUTH0_CLIENT_ID=$REACT_APP_AUTH0_CLIENT_ID
+
 RUN npm run build
 
 # Production stage with nginx
